@@ -1,0 +1,49 @@
+<div *ngIf="cargando" class="center">
+    <div class="spinner-border text-info" role="status">
+    </div>
+</div>
+
+<div *ngIf="!cargando" class="p-3">
+    <div class="text-center">
+        <h1>Lista de usuarios de Finaktiva.</h1>
+    </div>
+    <br>
+    <div class="text-right">
+        <button type="button" class="btn btn-outline-primary" (click)="nuevoUsuario()">
+            Crear usuario
+        </button>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Usuario</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of listaUsuarios">
+            <th>{{usuario.username}}</th>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellido}}</td>
+            <td class="text-right">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary" (click)="actualizarUsuario(usuario)">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </button>
+                    <button *ngIf="!eliminando" type="button" class="btn btn-outline-danger" (click)="eliminarUsuario(usuario)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    <button *ngIf="eliminando" class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span class="visually-hidden">Loading...</span>
+                      </button>
+                </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>

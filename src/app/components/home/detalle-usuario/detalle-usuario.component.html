@@ -1,0 +1,57 @@
+<div class="p-3">
+    <h3>Información usuario</h3>
+    <br>
+    <div class="card p-3">
+            <div class="row">
+                <div class="col-sm-4">
+                    Nombre
+                    <input type="text" class="form-control" [(ngModel)]="usuario.nombre">
+                </div>
+                <div class="col-sm-4">
+                    Email
+                    <input type="text" class="form-control"  [(ngModel)]="usuario.email">
+                </div>
+                <div class="col-sm-4">
+                    Usuario
+                    <input type="text" class="form-control"[(ngModel)]="usuario.username">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    Contraseña
+                    <input type="password" class="form-control" [(ngModel)]="password">
+                </div>
+                <div class="col-sm-4">
+                    Rol
+                    <select class="form-select form-control" [(ngModel)]="rol">
+                        <option>Rol usuario</option>
+                        <option value="admin">ROL_ADMIN</option>
+                        <option value="operario">ROL_OPERATIVO</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+            
+                <div class="col-sm-12 text-right">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary" (click)="volver()">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            Volver
+                        </button>
+                        <button *ngIf="!guardando" type="button" class="btn btn-primary" (click)="guardar()">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            Guardar
+                        </button>
+                        <button *ngIf="guardando" class="btn btn-primary" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span class="visually-hidden">Loading...</span>
+                          </button>
+                    </div>
+                    
+                </div>
+
+            </div>
+    </div>
+</div>
