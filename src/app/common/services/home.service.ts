@@ -32,7 +32,7 @@ export class HomeService {
     eliminarUsuario(usuario: Usuario) : Observable<any> {
 
         let headers = new HttpHeaders().set('Autorization', localStorage.getItem('FINAKTIVA-TOKEN'));
-        return this.httpclient.post<Usuario[]>(`${this.urlBase}finaktiva/eliminarUsuario`, usuario, {headers: headers} );
+        return this.httpclient.post<Usuario[]>(`${this.urlBase}finaktiva/eliminarUsuario`, usuario.idusuario, {headers: headers} );
 
     }
 
