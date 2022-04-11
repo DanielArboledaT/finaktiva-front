@@ -27,6 +27,13 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('FINAKTIVA-TOKEN', res.token);
             this.route.navigate(['/home']);
 
+        },
+        err => {
+            if (err.status == 403) {
+                window.alert(`No estás autorizado`);
+            } else {
+                window.alert(`Usuario o contraseña incorrectos`);
+            }
         });
         
     }
