@@ -3,7 +3,7 @@ body {
     padding: 20px;
 }
 
-.center {
+.center-spinner {
     height: 100vh;
     width: 100%;
     display: flex;

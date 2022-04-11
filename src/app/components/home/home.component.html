@@ -1,4 +1,4 @@
-<div *ngIf="cargando" class="center">
+<div *ngIf="cargando" class="center-spinner">
     <div class="spinner-border text-info" role="status">
     </div>
 </div>
@@ -19,7 +19,7 @@
           <tr>
             <th scope="col">Usuario</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
+            <th scope="col">Rol</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -27,7 +27,7 @@
           <tr *ngFor="let usuario of listaUsuarios">
             <th>{{usuario.username}}</th>
             <td>{{usuario.nombre}}</td>
-            <td>{{usuario.apellido}}</td>
+            <td>{{usuario.roles[0].rolNombre}}</td>
             <td class="text-right">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-outline-primary" (click)="actualizarUsuario(usuario)">
@@ -38,7 +38,6 @@
                     </button>
                     <button *ngIf="eliminando" class="btn btn-primary" type="button" disabled>
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        <span class="visually-hidden">Loading...</span>
                       </button>
                 </div>
             </td>
